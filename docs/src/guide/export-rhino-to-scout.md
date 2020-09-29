@@ -1,15 +1,16 @@
 # Export Rhino to Scout
 
-This is the workflow of running a example-arbitrary-computational-model in grasshopper and **simultaneously** exporting **inputs**, **outputs**, and **settings** to files scout can read. These exported files will then be **uploaded** to scout through our [uploader](https://scoutbeta.kpfui.dev/). 
+This is the workflow of running a example-arbitrary-computational-model in grasshopper and **simultaneously** exporting **inputs**, **outputs**, and **settings** to files Scout can read. These exported files will then be **uploaded** to Scout through our [uploader](https://scoutbeta.kpfui.dev/). 
 
 Here is a [example](https://scoutbeta.kpfui.dev/?project=Dice) of the end result after following this tutorial. 
 
-## Prerequisite
+## Before you start
+
+### Prerequisite
 
 1. Rhino 6 with grasshopper installed 
 2. [TRICERATOPS](https://www.food4rhino.com/app/triceratops) plug-in for grasshopper (by Amelia Harvey)
-
-## Tutorial
+* (optional) Text editor (we recommend [VSCode](https://code.visualstudio.com/))
 
 ### Download Examples Files
 TODO: these links don't work right now!!! 
@@ -29,14 +30,7 @@ TODO: these links don't work right now!!!
 [0_volume.json]()
 
 <!-- <a href="files/ScoutDemo_CompDesign.3dm" download>Rhino File</a> -->
-
-### Step 0. Open Files
-
-Open Rhino and Grasshopper file and make sure no plug-in is missing. 
-You should see something like this: 
-![img](./images/tutorial/start_screen.png)
-
-#### Grasshopper Color Code
+### Grasshopper Color Code
 Different colors were used to denote different meanings in the grasshopper file. 
 ![img](./images/tutorial/color_code.png)
 
@@ -46,8 +40,15 @@ Different colors were used to denote different meanings in the grasshopper file.
 * *grey* and black are components that shouldn't be changed, the darker the color the less we recommend changing 
 * *dark green* means if you made a copy of a new group, you should connect the new group to the components circled in *dark green*
 
+## Step 0. Open Files
 
-### Step 1. Computational Model
+Open Rhino and Grasshopper file and make sure no plug-in is missing. 
+You should see something like this: 
+![img](./images/tutorial/start_screen.png)
+
+
+
+## Step 1. Computational Model
 
 Take a look at the Computational Model we generated and understand that 
 all the **inputs** for this model are **cross-referenced** so they can each be controlled by a slider.  
@@ -57,7 +58,7 @@ There are 2 types of **outputs** for each analysis:
       * a list of exploded individual meshes  
       * a list of values that will be used to color the meshes  
 
-### Step 2. Decare Input and Output Names
+## Step 2. Decare Input and Output Names
 
 In the 2 *pink* text panels, type in the name of all of your inputs and outputs respectively.   
 * The names that are used here are only for your use to construct files and won't show-up in Scout so you can use shortened names  
@@ -66,9 +67,11 @@ In the 2 *pink* text panels, type in the name of all of your inputs and outputs 
 
 ![img](./images/tutorial/2.png)
 
-### Step 3. Set All Inputs
-
-For each input: 
+## Step 3. Set All Inputs
+The input you set here will create all the possible combinations of all of your inputs.  
+It will communicate the iteration information and the index for each input for that specific iteration to your `data.csv` and write the input part of the `settings.json` file. 
+### Input Settings
+Foreach Input: 
 1. Set input Index *(upper left pink panel)* = the current input you want to set's **index** in the text panel you edited in Step 2 
 1. the inputs that are used for your computational model *(lower left pink group)*
     * these can be any type that make up inputs for your computational model, the script will automatically convert them into indexes when generating the data.csv
@@ -81,7 +84,115 @@ For each input:
 ![img](./images/tutorial/3zoom.png)
 ![img](./images/tutorial/3scout.png)
 
+Here we are showing 3 inputs for this computational model, if you were to make your own input, you will use the 4th one down on the bottom or copy that entire roll again as your new input. 
 
-
+### Connect new Input
+Follow the steps outlined above for your input settings, then we need to connect it to the rest of the grasshopper script: 
+  follow the bright green arrows in the image below 
+  1. connect your computational input to the lower left component
+  1. connect your `input settings` to the upper right `merge` component circled in *dark green*. 
+  1. connect your `series` component to the `cross reference` component
+  1. connect the `cross reference` component to your `list item` component's `list` field. 
+  1. connect the output of the second `list item` component to your computational model where it uses this input to do manipulations
+  1. connect the `index` of your input to the `merge` component on the lower right. make sure it is in the same order as your "input list" set in step 2. 
 
 ![img](./images/tutorial/3.png)
+
+## Step 4. Set All Output
+The output you set here will write the numerical result for each analysis to your `data.csv` file, create the output part of your `settings.csv` file, and will color and export your exploded analysis meshes as a `json` file into your `models` folder. 
+* check that your output mesh is offseted from your model geometry to avoid overlaps
+### Output Settings
+Foreach Output: 
+1. you need: 
+      1. a numerical value for this iteration
+      1. a list of exploded analysis mesh
+      1. a list of numbers use to color the analysis mesh (same number of items as the exploded analysis mesh list)
+1. Set output Index *(upper left pink panel)* = the current output you want to set's **index** in the text panel you edited in Step 2 
+1. Set title (label) for this output *(top pink panel on the right)*
+1. Set description for this output  *(2nd pink panel on the right)*
+1. Set unit for this output's numerical value *(3rd pink panel on the right)*
+1. Set min and max bound for this output  *(4th roll pink panels on the right)*
+      * the white panel next to it is a hint for the bounds of the current iteration
+1. Set color scale
+1. Set tick mark text *(bottom pink panel on the right)*
+
+![img](./images/tutorial/4zoom.png)
+
+Here we are showing 3 examples of outputs.   
+To add another one you should use the 4th empty group or copy the entire group again on the bottom.  
+
+### Connect new Output
+To connect this to the rest of the grasshopper script, follow the bright green arrows: 
+1. connect 3 outputs from your computational model to the new group you copied on the very left. the 3 outputs: 
+      1. a numerical value for this iteration
+      1. a list of exploded analysis mesh
+      1. a list of numbers use to color the analysis mesh (same number of items as the exploded analysis mesh list)
+1. connect your numerical output to the *dark green* `merge` on the top
+1. connect your `output settings` to the *dark green* `merge` on the bottom
+
+![img](./images/tutorial/4.png)
+
+## Step 5. Export Current Iteration Geometry
+This will export your current iteration model into a white mesh and export as a `json` file in your `models` folder.  
+Simply pass your current iteration geometry into this group here.  
+![img](./images/tutorial/5.png)
+
+## Step 6. Export Context
+1. separate all of your context geometry by color
+1. copy this group once for each color
+1. change the material setting for each of your color
+1. connect each of your colors with the group for exporting
+1. connect your `mesh` component to the `merge` component circled in *dark green* 
+![img](./images/tutorial/6.png)
+
+### Congrats! All the setting up is done, now we just need to compute all of your iterations! 
+
+## Step 7. Animate all options
+First make sure to **save your GH and Rhino file** before you start simulating so you don't loose your progress if your computational model crashes. 
+![img](./images/tutorial/7.png)
+1. set the `upper limit of slider` = `number of options -1`
+1. right click on your `slider` -> `Animate...`
+   ![img](./images/tutorial/7zoom.png)
+1. click `Browse...` -> set a location on your computer where you can save temp files. we will NOT be needing these. 
+1. set `Frame count` = `number of options -1`
+1. click `OK`
+
+### Done! Now just wait for your computational model to finish. 
+* All the iteration files should be writing automatically to a folder called `scout_upload` in the same directory as your grasshopper file.  
+* Go into `scout_upload` >> `models` folder, you should see all your iteration's geometry (`xxx_option.json`) and analysis meshes (`xxx_output_name.json`) be writing out here in real-time. 
+* Go into `scout-upload` >> `.temp` you should see all your iterations' individual line of `data.csv` be writing out in real-time. 
+
+## Step 8. Write Final Files
+Now you are done with all your simulations!  
+Click this button to write out your `context.json`, `settings.json`, and `data.json`. 
+
+![img](./images/tutorial/8.png)
+
+## Optional Step. Check your files before upload
+We recommend opening up `data.csv` with a text/code editor (VS Code recommended) to check: 
+1. no empty lines on the bottom roll (if you edited your `data.csv` and in excel, this is likely to happen)
+1. all the iterations exists
+1. all the columns match their header
+1. no empty cells / short rolls
+    * if you found any don't worry, re-run out those iterations and trouble shoot one by one. 
+    * the analysis grid will automatically be written to the `models` folder and will overwrite your old file. 
+    * data for that iteration will also overwrite your old data in the `.temp` folder. 
+    * When you are done simply repeat step 8 and it will recompile `data.csv` for you, bringing in the new data. 
+
+You may also open up `settings.json` and/or other files with a text editor to check if everything exported correctly. There is un-likely to be an issue with these files if your `data.csv` had no issues. 
+
+You are welcomed to edit your `settings.json` file with a text/code editor if you find it easier. 
+
+## Step 9. Up load to Scout
+1. Open [Scout](https://scoutbeta.kpfui.dev/) in your browser
+![img](./images/tutorial/9.png)
+
+1. Open your local folder to `where your grasshopper file lives` >> `scout_upload`
+1. you should see `settings.json`, `data.csv`, `context.json` in your directory. Drag EACH one of these to where it indicates on Scout. 
+![img](./images/tutorial/9files.png)
+1. open `models` >> `ctrl/command + A` select all >> Drag to `models` on Scout
+1. wait for everything to upload. 
+1. click `start scout`
+
+
+### Congratulations! You are done! 

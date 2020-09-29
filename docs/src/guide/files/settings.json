@@ -1,0 +1,54 @@
+{
+  "metricInfo": {
+    "volume": {
+      "description":"this is colored based on the volumn of each geometry",
+      "colorRamp":["#008000","#068615","#15944B","#27A68E","#36B4C4","#3CBAD9","#4EC1C4","#7FD28E","#BCE74B","#ECF815","#FFFF00"],
+      "minBound": 0,
+      "maxBound": 500,
+      "label": "Total Volume",
+      "model": "base",
+      "ticks": ["100","400","700"],
+      "units": "cbft",
+      "materialType": "MeshStandardMaterial",
+      "analysis_mesh": true
+    },
+    "distance": {
+      "description":"distance to center of cube",
+      "colorRamp":["#EA2600","#EA4400","#EA7600","#EC8908","#F7CB37","#FEF454","#E2E68D","#B5CFE9","#A4C2F1","#6D8CC5","#4B6BA9"],
+      "minBound": 0,
+      "maxBound": 1.5,
+      "label": "Avg Movement",
+      "model": "base",
+      "ticks": ["0","0.5","1"],
+      "units": "ft",
+      "materialType": "MeshStandardMaterial",
+      "analysis_mesh": true
+    },
+    "angle": {
+      "description":"how much the geometry rotates",
+      "colorRamp":["#96FF1B","#99FC1E","#A0F328","#ACE536","#BAD449","#CAC05D","#DBAD72","#E99C85","#F58E93","#FC859D","#FF82A0"],
+      "minBound": 0,
+      "maxBound": 1,
+      "label": "Number of Unique Face Angles",
+      "model": "base",
+      "ticks": ["none","lots of rotation"],
+      "units": "unique angles",
+      "materialType": "MeshStandardMaterial",
+      "analysis_mesh": true
+    }
+  },
+  "inputInfo": {
+    "in_resolution": {
+      "labels": ["tiny","small","small-ish","mid","chunks","large-ish","large","huge"],
+      "label": "subdivision resolution"
+    },
+    "in_location_of_explosion": {
+      "labels": ["0","1","2","3","4"],
+      "label": "location of explosion"
+    },
+    "in_strength_of_explosion": {
+      "labels": ["1","2","3","4","5"],
+      "label": "strength of explosion"
+    }
+  }
+}
