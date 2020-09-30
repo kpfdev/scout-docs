@@ -34,17 +34,17 @@ module.exports = {
     lastUpdated: false,
     nav: [],
     sidebar: {
-      '/guide/': [
+      '/documentation/': [
         {
-          title: 'Guide',
+          title: 'Documentation',
           collapsable: false,
           children: [
             '',
-            'export-rhino-to-scout',
+            'rhino-to-scout',
             'required-files.md'
           ]
         }
-      ],
+      ]
     }
   },
 

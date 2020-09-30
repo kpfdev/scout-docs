@@ -1,10 +1,36 @@
-# Required files
+---
+sidebarDepth: 3
+---
 
-## settings.json
+
+# Data Structure
+
+Each project consists of a context.json, data.csv, settings.json, and a series geometry and analysis models. Each of these files are discussed below with examples.
+
+## Folder Structure
+
+```
+<project-name>/
+-- context.json
+-- data.csv
+-- settings.json
+-- models/
+---- 0_option.json
+---- 0_analysis.json
+---- 1_option.json
+---- 1_analysis.json
+---- ...
+```
+
+Each file type is described below
+
+
+
+## Settings.json
 
 The settings.json is a file saved in [JSON format](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON) with settings for Scout to properly setup the visualization. The file is setup into two main objects, `inputInfo` and `metricInfo`. Each object contains a series of key/value pairs which act for settings for inputs and metric respectively.
 
-The settings.json has the following structure (some examples included)
+The settings.json has the following structure.
 
 ```JSON
 {
@@ -34,8 +60,6 @@ The settings.json has the following structure (some examples included)
 
 ### inputInfo
 
-![img](./guide/../images/hawaii_scout.gif)
-
 | key name | type   | description                                 | notes |
 |----------|--------|---------------------------------------------|-------|
 | labels   | array  | list of labels for input sliders as strings |       |
@@ -58,7 +82,7 @@ The settings.json has the following structure (some examples included)
 | zeroScale     | boolean | whether metric should include or exclude 0's from color gradient |                                             |
 
 
-## data.csv
+## Data.csv
 
 The file contains the iteration number, inputs, and outputs from the design space.
 

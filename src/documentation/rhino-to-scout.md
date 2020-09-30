@@ -1,4 +1,8 @@
-# Export Rhino to Scout
+---
+sidebarDepth: 3
+---
+
+# Rhino to Scout
 
 This is the workflow of running a example-arbitrary-computational-model in grasshopper and **simultaneously** exporting **inputs**, **outputs**, and **settings** to files Scout can read. These exported files will then be **uploaded** to Scout through our [uploader](https://scoutbeta.kpfui.dev/). 
 
@@ -21,15 +25,18 @@ TODO: these links don't work right now!!!
 [Grasshopper]()
 
 #### example exported files
-[settings.json]()
 
-[data.csv]()
+<!-- [settings.json]() -->
 
-[0_option.json]()
 
-[0_volume.json]()
+<!-- [data.csv]() -->
+
+[0_option.json](./files/0_option.json)
+
+<!-- [0_volume.json]() -->
 
 <!-- <a href="files/ScoutDemo_CompDesign.3dm" download>Rhino File</a> -->
+
 ::: tip
 ### Grasshopper Color Code
 Different colors were used to denote different meanings in the grasshopper file. 
