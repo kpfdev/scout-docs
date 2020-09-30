@@ -10,7 +10,7 @@
   "repository": "https://github.com/kpfdev/scout-docs/scout-docs",
   "scripts": {
     "serve": "vuepress dev src",
-    "build": "vuepress build src"
+    "build": "vuepress build src -d ./docs"
   },
   "license": "MIT",
   "devDependencies": {
