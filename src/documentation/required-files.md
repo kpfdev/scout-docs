@@ -11,26 +11,23 @@ Each project consists of a context.json, data.csv, settings.json, and a series g
 
 ```
 <project-name>/
--- context.json
--- data.csv
--- settings.json
--- models/
----- 0_option.json
----- 0_analysis.json
----- 1_option.json
----- 1_analysis.json
----- ...
+| context.json
+| data.csv
+| settings.json
+| models/
+|-- 0_option.json
+|-- 0_analysis.json
+|-- 1_option.json
+|-- 1_analysis.json
+|-- ...
 ```
 
-Each file type is described below
 
+## Settings.json 
 
+<a href="https://github.com/kpfdev/scout-docs/blob/master/src/documentation/files/settings.json" download target="_blank">example</a>
 
-## Settings.json
-
-The settings.json is a file saved in [JSON format](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON) with settings for Scout to properly setup the visualization. The file is setup into two main objects, `inputInfo` and `metricInfo`. Each object contains a series of key/value pairs which act for settings for inputs and metric respectively.
-
-The settings.json has the following structure.
+The settings.json is a file saved in [JSON format](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON) with settings for Scout to properly setup the visualization. The file is setup into two main objects, `inputInfo` and `metricInfo`. Each object contains a series of key/value pairs which act as settings for inputs and metrics respectively.
 
 ```JSON
 {
@@ -60,7 +57,7 @@ The settings.json has the following structure.
 
 ### inputInfo
 
-| key name | type   | description                                 | notes |
+| key | type   | description                                 | notes |
 |----------|--------|---------------------------------------------|-------|
 | labels   | array  | list of labels for input sliders as strings |       |
 | label    | string | pretty label of input                       |       |
@@ -82,20 +79,25 @@ The settings.json has the following structure.
 | zeroScale     | boolean | whether metric should include or exclude 0's from color gradient |                                             |
 
 
-## Data.csv
+:::tip
 
-The file contains the iteration number, inputs, and outputs from the design space.
+There are numerous free tools to check a JSON for errors - such as [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json) available in [VSCode](https://code.visualstudio.com/)
+:::
 
-- The headers of the file follow snake case which writes compound words or phrases separated  by underscore `_` .
-- The header for the iteration column should be `iteration`.
-- Inputs should start with `in_` and then followed by the name of the given input. 
-- Outputs should start with `out_` and then followed by the name of the given output.
-  - the names of outputs excluding the prefix `out_` should exactly match the naming used for a analysis mesh. 
-    - example if the output in the data.csv reads `out_unobstructed_views_to_empire_state_building` then the corresponding analysis mesh should read `#_unobstructed_views_to_empire_state_building`. Where `#` corresponds to the given iteration value of the analysis mesh and the following text exactly matches the header name in the data.csv.
+## Data.csv 
 
-Example data.csv for an iterative design space. 
+<a href="https://github.com/kpfdev/scout-docs/blob/master/src/documentation/files/data.csv" download target="_blank">example</a>
 
-| iteration | in_location | in_rotation | out_views | out_unobstructed_view | 
-|-----------| ------------|-------------|-----------|-----------------------|
-| 0 | 20 | 40 | 40 | 90 |
-| 1 | 40 | 60 | 50 | 100 |
+The data.csv is a square matrix with rows representing each design iteration and columns the various properties of the design iteration. The first column should always be labeled `iteration` which is a unique string identifier for each given iteration row. 
+
+The headers of the file follow snake case which writes compound words or phrases separated  by underscore `_` . 
+
+| key | type | description | example |
+| ----| -----|-------------|-------|
+| iteration | int | unique identifer of the iteration row | 0 |
+| in_ | float, int | any input should be prefixed with `in_` | `in_rotation` |  
+| out_ | float, int | any output should be prefixed with `out_` | `out_views` |
+
+:::tip
+If the header in the data.csv reads `out_unobstructed_views_to_empire_state_building` then the corresponding analysis mesh should read `#_unobstructed_views_to_empire_state_building`. Where `#` corresponds to the given iteration value of the analysis mesh and the following text exactly matches the header name in the data.csv.
+:::

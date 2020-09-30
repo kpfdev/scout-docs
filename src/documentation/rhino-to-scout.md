@@ -17,25 +17,24 @@ Here is a [example](https://scoutbeta.kpfui.dev/?project=Dice) of the end result
 * (optional) Text editor (we recommend [VSCode](https://code.visualstudio.com/))
 
 ### Download Examples Files
-TODO: these links don't work right now!!! 
 
 #### files to work with
-[Rhino]()
 
-[Grasshopper]()
+<a href="https://github.com/kpfdev/scout-docs/blob/master/src/documentation/files/ScoutDemo_CompDesign.3dm" download target="_blank">Rhino File</a>
+
+<a href="https://github.com/kpfdev/scout-docs/blob/master/src/documentation/files/ScoutDemo_CompDesign.gh" download target="_blank">Grasshopper</a>
 
 #### example exported files
 
-<!-- [settings.json]() -->
 
+<a href="https://github.com/kpfdev/scout-docs/blob/master/src/documentation/files/settings.json" download target="_blank">settings.json</a>
 
-<!-- [data.csv]() -->
+<a href="https://github.com/kpfdev/scout-docs/blob/master/src/documentation/files/data.csv" download target="_blank">data.csv</a>
 
-[0_option.json](./files/0_option.json)
+<a href="https://github.com/kpfdev/scout-docs/blob/master/src/documentation/files/0_volume.json" download target="_blank">0_volume.json</a>
 
-<!-- [0_volume.json]() -->
+<a href="https://github.com/kpfdev/scout-docs/blob/master/src/documentation/files/0_option.json" download target="_blank">0_option.json</a>
 
-<!-- <a href="files/ScoutDemo_CompDesign.3dm" download>Rhino File</a> -->
 
 ::: tip
 ### Grasshopper Color Code
