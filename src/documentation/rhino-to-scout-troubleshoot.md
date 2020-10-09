@@ -24,6 +24,43 @@ sidebarDepth: 3
 
 :::
 
+## Steps for trouble shooting 
+### 1. First check if all the files exists: 
+- scout upload (folder)
+    - `settings.json`
+    - `data.csv`
+    - `context.json`
+    - models (folder)
+        - `xxx_option.json`
+        - `xxx_your_output.json`
+        - ... (for all iterations)
+    - .temp (folder)
+        - `xxx_data.csv`
+        - ... (for all iterations)
+
+### 2. Check your `data.csv` file
+Open in excel and check
+Does it: 
+- have `iteration, in_your_input, ... , out_your_output, ...` as its header?
+- does that header include all of your inputs and outputs?
+- data inside match your header? missing data? extra data?
+- everything (besides the headers) are all numbers (no scientific notation!)
+- headers all lower case
+
+Then, open with text editor (VSCode) and check
+- no empty line on the bottom of file (excel would save a empty role at the end)
+- no comma at end of each line 
+
+### 3. Check your `settings.json` file
+- if all of your inputs and outputs exists?
+- inputs should be named "in_your_input"
+- outputs should be named "your_output" without the "out_" keyword in front
+- all lower case names
+- does your inputs and output names match EXACTLy those in your `data.csv` header and in your models folder? 
+
+See the next section *Data Structures* for more information
+
+
 ## Fix Missing TRICERATOPS Components
 The diagram below notes all the triceratops components that were used in the example file, including those that were inside clusters. 
 If the version of grasshopper was behind that of TRICERATOPS it will not load correctly even after updating grasshopper to the correct version. 
@@ -34,3 +71,12 @@ Here denotes the correct correction
 - dark blue box means zooming in
 
 ![img](./images/triceratops_instances.png)
+
+## Common Issues
+### missing objects / geometry faces in scout
+Most likely caused by a "flipped" mesh in scout since meshes are only visible on ONE side in scout. If your geometry in grasshopper is not a CLOSED brep, it will likely be converted incorrectly to a mesh and thus some faces might be flipped unexpectedly. 
+Another cause might be the geometry's material's opacity is set to 0. 
+
+### model not changing with slider / all outputs look the same
+Did you REPLACE all of your computational model's input with data from scout's input group? 
+
