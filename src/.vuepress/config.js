@@ -42,6 +42,7 @@ module.exports = {
           children: [
             '',
             'rhino-to-scout',
+            'rhino-to-scout-troubleshoot',
             'required-files.md'
           ]
         }
