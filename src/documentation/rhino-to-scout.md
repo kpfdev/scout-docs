@@ -216,7 +216,7 @@ You may also open up `settings.json` and/or other files with a text editor to ch
 You are welcomed to edit your `settings.json` file with a text/code editor if you find it easier. 
 :::
 
-## Step 9. Up load to Scout
+## Step 9. Upload to Scout
 1. Open [Scout](https://scoutbeta.kpfui.dev/) in your browser
 ![img](./images/tutorial/9.png)
 
