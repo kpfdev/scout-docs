@@ -1,0 +1,19 @@
+{
+  "name": "scout-docs",
+  "version": "0.0.1",
+  "description": " ",
+  "main": "index.js",
+  "authors": {
+    "name": "Brandon",
+    "email": ""
+  },
+  "repository": "https://github.com/kpfdev/scout-docs/scout-docs",
+  "scripts": {
+    "serve": "vuepress dev src",
+    "build": "vuepress build src -d ./docs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
