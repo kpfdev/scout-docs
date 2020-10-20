@@ -101,7 +101,3 @@ The headers of the file follow snake case which writes compound words or phrases
 :::tip
 If the header in the data.csv reads `out_unobstructed_views_to_empire_state_building` then the corresponding analysis mesh should read `#_unobstructed_views_to_empire_state_building`. Where `#` corresponds to the given iteration value of the analysis mesh and the following text exactly matches the header name in the data.csv.
 :::
-
-:::warning
-warning firing
-:::
