@@ -22,4 +22,4 @@ jobs:
         TARGET_REPO: kpfdev/scout-docs
         TARGET_BRANCH: github_pages
         BUILD_SCRIPT: npm install && npm build
-        BUILD_DIR: ./docs/
+        BUILD_DIR: ./docs
