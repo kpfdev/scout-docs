@@ -12,9 +12,11 @@ Here is a [example](https://scoutbeta.kpfui.dev/?project=Dice) of the end result
 
 ### Prerequisite
 
-1. Rhino 6 with grasshopper installed 
-2. [TRICERATOPS](https://www.food4rhino.com/app/triceratops) plug-in for grasshopper (by Amelia Harvey)
+1. Latest version Rhino 6 with grasshopper installed 
+2. Latest version [TRICERATOPS](https://www.food4rhino.com/app/triceratops) plug-in for grasshopper (by Amelia Harvey)
+3. Latest version of [Gh script](https://github.com/DemiChangKPF/gh_upload_to_scout_template.git)
 * (optional) Text editor (we recommend [VSCode](https://code.visualstudio.com/))
+
 
 ### Download Examples Files
 
