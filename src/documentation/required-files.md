@@ -80,7 +80,6 @@ The settings.json is a file saved in [JSON format](https://developer.mozilla.org
 
 
 :::tip
-
 There are numerous free tools to check a JSON for errors - such as [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json) available in [VSCode](https://code.visualstudio.com/)
 :::
 
