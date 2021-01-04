@@ -2,9 +2,17 @@
 sidebarDepth: 3
 ---
 
+<<<<<<< HEAD
 # Export Rhino to Scout TroubleShoot
 
 ::: tip
+=======
+
+# Export Rhino to Scout TroubleShoot
+
+::: tip
+
+>>>>>>> 08b8822e2f23670b3d7549dd84fb6482ca6642cb
 ## Check list
 
 ### Before Opening Gh File:
