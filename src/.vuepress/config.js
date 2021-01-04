@@ -43,7 +43,8 @@ module.exports = {
             '',
             'rhino-to-scout',
             'rhino-to-scout-troubleshoot',
-            'required-files.md'
+            'required-files.md',
+            'rhino-compute-plugin'
           ]
         }
       ]
