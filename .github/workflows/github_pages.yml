@@ -18,8 +18,8 @@ jobs:
     - name: vuepress-deploy
       uses: jenkey2011/vuepress-deploy@master
       env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        ACCESS_TOKEN: ${{ secrets.ACTION_SECRET }}
         TARGET_REPO: kpfdev/scout-docs
         TARGET_BRANCH: github_pages
         BUILD_SCRIPT: npm install && npm build
-        BUILD_DIR: ./docs/
+        BUILD_DIR: ./docs
