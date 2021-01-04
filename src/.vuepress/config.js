@@ -42,8 +42,7 @@ module.exports = {
           children: [
             '',
             'rhino-to-scout',
-            'required-files.md',
-            'KPF-compute-plugin'
+            'required-files.md'
           ]
         }
       ]
