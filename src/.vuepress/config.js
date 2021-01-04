@@ -43,7 +43,7 @@ module.exports = {
             '',
             'rhino-to-scout',
             'required-files.md',
-            'rhino-compute-plugin'
+            'KPF-compute-plugin'
           ]
         }
       ]
