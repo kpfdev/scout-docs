@@ -1,7 +1,6 @@
 ---
 sidebarDepth: 3
 ---
-
 # KPF Compute Plugin
 
 The KPF Compute plugin allows a user to run computational analysis on the cloud in Rhino 6.
