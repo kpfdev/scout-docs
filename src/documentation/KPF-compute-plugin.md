@@ -149,3 +149,11 @@ If meshes seem incorrect in Scout, check the surface normals of the context geom
 Change the color of *Backface visibility* by going to file > properties > View > shaded. Change the *Backface Settings* color to visualize which faces are facing the wrong way. All faces should be facing outward from the buildings. 
 :::
 
+### Analysis mesh returns but with no result: Checking Model Scale
+
+Use the `Distance` command in Rhino to make sure your model is the right size. 
+If your model unit is off, the analysis will be running on a completely incorrect scale. 
+
+To prevent this error: 
+make sure to click "Yes" and re-size your model when converting your model unit to Feet or Meters
+![img](./images/computePlugin/ConvertUnit.png)
