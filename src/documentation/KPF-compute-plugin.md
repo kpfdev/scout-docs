@@ -157,3 +157,13 @@ If your model unit is off, the analysis will be running on a completely incorrec
 To prevent this error: 
 make sure to click "Yes" and re-size your model when converting your model unit to Feet or Meters
 ![img](./images/computePlugin/ConvertUnit.png)
+
+### Analysis mesh returns but colors are messed up
+
+This might be caused by having curved geometry as input building breps. The root cause of this is still unknown and we are investigating. 
+
+::: tip
+Use command `DupFaceBorder` to get the top or bottom face border of your curved geometry, then
+Rebuild your curves with straight line segments using `Rebuild` command in rhino and use a `Degree` of `1`
+Re-Extrude your poly-line
+:::
