@@ -37,13 +37,15 @@ The plugin contains three pages:
 
 ### Prepping the Rhino File
 
-#### 1. Context
+#### 1. Obstructions
 
+Obstructions are different from Context in that Obstructions are the context geometry that will cause meaningful obstructions of sunlight or views to the project site. 
 Context is any geometry that is static in the scene, such as adjacent buildings or ground plane. It is best to include the buildings next to your site that are necessary for the analysis.
 
-Both Brep geometry and mesh geometry are accepted.
+Although both polysurfaces(breo) geometry and mesh geometry are accepted. We STRONGLY Recommend using a very simple mesh
 
 :::warning
+Only use buildings that are immediately next to your site and will create meaningful obstructions. 
 The larger the context model - the longer the analysis will take to process.
 :::
 
@@ -53,7 +55,24 @@ Building geometry is the geometry you want to analyze. The building geometry can
 
 :::tip
 make sure the building geometry are all **Closed BREPS!**
+refer to next section for more instructions on Modeling Guideline for Building
 :::
+
+#### Modeling Guideline for Building Geometry: 
+Building geometries are **required** to be Close Poly-surfaces! or as grasshopper likes calling it: close breps. 
+Building geometries also **need to pass** `BooleanUnion` command in rhino with no errors. 
+Curved surfaces are strongly **not recommended**. 
+Buildings cut into individual floors often fails `BooleanUnion`. They usually needs to be rebuilt with a bit of work. We provided some tips below: 
+
+::: tip
+good ways to rebuild geometry: 
+- Use command `DupFaceBorder` to get the top or bottom face border of your geometry, then re-extrude
+- when massing is cut into different floors, BooleanUnion often fails. Delete every floor but leave only one, and `Scale1D` of that geometry. 
+- sometimes the top/bottom face might not be perfect parallel to the C-plane. use `DupFaceBorder` and then `ProjectToCPlane` then re-extrude your geometry
+- Rebuild your curves with straight line segments using `Rebuild` command in rhino and use a `Degree` of `1`
+- After using `DupFaceBorder`, use `CurveBoolean` to join regions of the curve that touches before re-extruding, sometimes `CurveBoolean` is more reliable than `BooleanUnion`. This also will catch small inaccuracies in modeling that might cause boolean union to fail. 
+:::
+
 
 #### How to Name Rhino Layers
 
@@ -149,3 +168,21 @@ If meshes seem incorrect in Scout, check the surface normals of the context geom
 Change the color of *Backface visibility* by going to file > properties > View > shaded. Change the *Backface Settings* color to visualize which faces are facing the wrong way. All faces should be facing outward from the buildings. 
 :::
 
+### Analysis mesh returns but with no result: Checking Model Scale
+
+Use the `Distance` command in Rhino to make sure your model is the right size. 
+If your model unit is off, the analysis will be running on a completely incorrect scale. 
+
+To prevent this error: 
+make sure to click "Yes" and re-size your model when converting your model unit to Feet or Meters
+![img](./images/computePlugin/ConvertUnit.png)
+
+### Analysis mesh returns but colors are messed up
+
+This might be caused by having curved geometry as input building breps. The root cause of this is still unknown and we are investigating. 
+
+::: tip
+Use command `DupFaceBorder` to get the top or bottom face border of your curved geometry, then
+Rebuild your curves with straight line segments using `Rebuild` command in rhino and use a `Degree` of `1`
+Re-Extrude your poly-line
+:::
