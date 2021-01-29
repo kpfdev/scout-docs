@@ -50,8 +50,8 @@ The plugin contains three pages:
 
 #### 1. Obstructions
 
-Obstructions are different from Context in that Obstructions are the context geometry that will cause **meaningful obstructions of sunlight or views** to the project site. Only include geometry that are NECCESSARY to your analysis.  
-Context is any geometry that is static in the scene for **visualization** purposes, such as adjacent buildings, trees, road geometry, curbs, water, or ground plane.  
+**Obstructions** are different from Context in that Obstructions are the context geometry that will cause **meaningful obstructions of sunlight or views** to the project site. Only include geometry that are NECCESSARY to your analysis.  
+**Context** is any geometry that is static in the scene for **visualization** purposes, such as adjacent buildings, trees, road geometry, curbs, water, or ground plane.  
 
 ![img](./images/computePlugin/obstructionVScontext.png)
 
@@ -160,11 +160,27 @@ Once you create a project with the given analysis, you cannot go back. However, 
 
 #### Run either Single Analysis or Multiple
 
-check the checkbox for *upload to scout* and click on the button *Run All Analysis*. This will run all the analysis for you and upload the results automatically to Scout.  
+check the checkbox for *upload to scout* and click on the button *Run All Analysis*. This will run all the analysis for you and upload the results automatically to Scout. (note that it will only upload to scout when clicking Run All Analysis and thus will not upload individual analysis)
+
+![img](./images/computePlugin/upload_to_scout.png)
 
 If this is the first time you are uploading to scout in this rhino session, the scout web-page will open automatically once the upload is complete. If it is not the first time, a dialog box will show-up prompting you to re-fresh the already open scout web-page.  
 
-To upload more models, simply make-sure the name of the building layer is unique to this design space. It will add more models to your design space. If you want to replace / update an older design, just upload a new model with the same name
+To upload more models, simply make-sure the name of the building layer is unique to this design space. It will add more models to your design space. If you want to replace / update an older design, just upload a new model with the same name. 
+
+#### Upload Context To Scout
+
+After uploading your first model, your scout space will be populated with the Obstruction mesh as its context. If you would like to have a more complex context for visualization, you can upload those through a different button. 
+
+Scroll to the bottom of the "Run Analysis" Panel and you should see the section shown in image below. 
+
+Mesh all of your context geometry and put different colored meshes on different layers. Color each layer with your desired color, and now put all these layers with geometry *under* a parent layer. Type in the *parent layer name* in the text box and click *Upload Context To Scout* button. This will pull all the meshes from the sub-layers of the *parent layer* and color them with their layer color and upload to scout. 
+
+![img](./images/computePlugin/context_to_scout.png)
+
+Refresh scout and you should see your updated context. (note that meshes that are invisible from behind, if you have missing mesh faces, just flip them in Rhino and re-upload)
+
+You can re-upload until you are happy with it and it will just re-write the previous uploaded context. 
 
 ## Available Analysis
 
@@ -191,6 +207,7 @@ If your model unit is off, the analysis will be running on a completely incorrec
 
 To prevent this error: 
 make sure to click "Yes" and re-size your model when converting your model unit to Feet or Meters
+
 ![img](./images/computePlugin/ConvertUnit.png)
 
 ### Analysis mesh returns but colors are messed up
