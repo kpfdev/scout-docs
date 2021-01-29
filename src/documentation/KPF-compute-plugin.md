@@ -50,14 +50,19 @@ The plugin contains three pages:
 
 #### 1. Obstructions
 
-Obstructions are different from Context in that Obstructions are the context geometry that will cause meaningful obstructions of sunlight or views to the project site. 
-Context is any geometry that is static in the scene, such as adjacent buildings or ground plane. It is best to include the buildings next to your site that are necessary for the analysis.
+Obstructions are different from Context in that Obstructions are the context geometry that will cause **meaningful obstructions of sunlight or views** to the project site. Only include geometry that are NECCESSARY to your analysis.  
+Context is any geometry that is static in the scene for **visualization** purposes, such as adjacent buildings, trees, road geometry, curbs, water, or ground plane.  
 
-Although both polysurfaces(breo) geometry and mesh geometry are accepted. We STRONGLY Recommend using a very simple mesh
+![img](./images/computePlugin/obstructionVScontext.png)
+
+Although both polysurfaces(breo) geometry and mesh geometry are accepted. We STRONGLY Recommend using a very simple meshes.  
+
+![img](./images/computePlugin/meshingSettings.png)
+
 
 :::warning
-Only use buildings that are immediately next to your site and will create meaningful obstructions. 
 The larger the context model - the longer the analysis will take to process.
+Meshes are always smaller than polysurfaces or breps. 
 :::
 
 #### 2. Building Geometry
