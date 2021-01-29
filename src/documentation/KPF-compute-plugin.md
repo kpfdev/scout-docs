@@ -7,7 +7,7 @@ The KPF Compute plugin allows a user to run computational analysis on the cloud 
 
 ## Installation
 
-1. Download the plugin.
+1. Download the plugin file: *KPFComputePlugin.rhp*. (the latest release is [v0.1.3](https://github.com/kpfdev/KPFComputePlugin/releases/tag/v0.1.3))
 2. *Right click* on the the plugin and go to *Properties* and check *Unblock*. This ensures the plugin will be accepted by your computer.
 
 ![img](./images/tutorial/KPF_compute_properties.png)
@@ -18,8 +18,19 @@ The KPF Compute plugin allows a user to run computational analysis on the cloud 
 4. Type *KPFComputePanel* in the Rhino Command prompt, the panel should appear.
 
 :::tip
-The default plugin location for Rhino plugins is `C:\Users\<user-name>\AppData\Roaming\McNeel\Rhinoceros\6.0\Plug-ins`
+The default plugin location for Rhino plugins is `C:\Users\<user-name>\AppData\Roaming\McNeel\Rhinoceros\6.0\Plug-ins`  
+However, rhino will not be moving this .rhp file into there automatically. If you would like all your plug-ins in one place, move your plug-in file into this folder first before proceeding to stop 3.  
+There is also nothing wrong with keeping your plug-in file in the Downloads folder. It will be perfectly happy there.  
 :::
+
+## Update
+
+1. Locate the old *KPFComputePlugin.rhp* file. You can find it's location by using the *PluginManager* command in Rhino. Scroll or search for **KPFComputePlugin** and click *details* and click on the the *File Name*. This will take you directly to the folder where your *KPFComputePlugin.rhp* file lives. 
+
+![img](./images/computePlugin/plug-in-manager-find-file-location.png)
+
+2. Close Rhino. Delete the old copy of *KPFComputePlugin.rhp*. 
+3. Now you can follow the install instructions above OR Download the new *KPFComputePlugin.rhp* at the same location as the old one. *Right click* on the the plugin and go to *Properties* and check *Unblock*. Now you should be good to go (open rhino and type in **KPFComputePlugin** to see if the plug-in opens). 
 
 ## Running Analysis
 
