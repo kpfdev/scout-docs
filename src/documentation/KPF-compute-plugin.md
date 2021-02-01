@@ -219,3 +219,25 @@ Use command `DupFaceBorder` to get the top or bottom face border of your curved 
 Rebuild your curves with straight line segments using `Rebuild` command in rhino and use a `Degree` of `1`
 Re-Extrude your poly-line
 :::
+
+### Team Test
+
+1. Install KPFComputePlugin [instructions](https://kpfdev.github.io/scout-docs/documentation/KPF-compute-plugin.html#installation)
+2. open *190924_One Vanderbilt Anlaysis Model.3dm*
+3. type *KPFComputePlugin* to open panel - you can snap the panel to any side of the Rhino Interface.
+4. The version of the panel should be `V 0.1.3(loadbalancer test)`
+5. Click on *I'm using Scout!*
+6. type in *0002-0-NYC* - should show up in the autocomplete
+7. click on the blue button *Select from existing projects* and select *ui-team-lb-test*
+8. click on green button *use existing project*
+9. Go back to Rhino
+10. leave all analysis settings as default
+11. click on *run analysis*
+12. hide the *Tower* layer
+13. design your own building on the site
+14. check *upload all to scout*
+15. Run each analysis for your building independently or click on *Run All Analysis* to run them all and upload directly to Scout
+
+:::tip
+Your design will only upload to Scout when you click on *Run All Analysis*. Which allows you to iterate on your design scheme without uploading to the team Scout.
+:::
