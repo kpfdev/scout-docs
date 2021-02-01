@@ -220,7 +220,7 @@ Rebuild your curves with straight line segments using `Rebuild` command in rhino
 Re-Extrude your poly-line
 :::
 
-### Team Test
+## Load Balancer Test
 
 1. Install KPFComputePlugin [instructions](https://kpfdev.github.io/scout-docs/documentation/KPF-compute-plugin.html#installation)
 2. open *190924_One Vanderbilt Anlaysis Model.3dm*
