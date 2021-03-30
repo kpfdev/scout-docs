@@ -68,7 +68,7 @@ The layer section can be seriously refactored.
 Functions from Mcneel and other helper functions to call Rhino Compute
 Some minor refactor is possible. 
 
-## 8. Scout
+## 8. KPFComputePlugin.Scout
 Handles all scout related functionalities 
 - start listener to listen for scout basket from https://rhino.kpfui.dev/
 - uploads analysis to scout
